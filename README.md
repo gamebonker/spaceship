@@ -143,7 +143,7 @@ Before deploying or sharing the game, verify that the following features are wor
 
 1. Clone or download this repository:
    ```
-   git clone https://github.com/username/starblaster.git
+   git clone https://github.com/gamebonker/starblaster.git
    ```
    
 2. Navigate to the project directory:
@@ -157,7 +157,7 @@ Before deploying or sharing the game, verify that the following features are wor
 
 1. Clone or download this repository:
    ```
-   git clone https://github.com/username/starblaster.git
+   git clone https://github.com/gamebonker/starblaster.git
    ```
    
 2. Navigate to the project directory:
@@ -202,7 +202,7 @@ Before deploying or sharing the game, verify that the following features are wor
    git add .
    git commit -m "Initial commit"
    git branch -M main
-   git remote add origin https://github.com/username/starblaster.git
+   git remote add origin https://github.com/gamebonker/starblaster.git
    git push -u origin main
    ```
 
@@ -214,7 +214,7 @@ Before deploying or sharing the game, verify that the following features are wor
 
 6. Click "Save"
 
-7. Your game will be available at `https://username.github.io/starblaster/`
+7. Your game will be available at `https://gamebonker.github.io/starblaster/`
 
 ### Netlify Deployment
 
@@ -289,11 +289,6 @@ starblaster/
 - Create a mobile-optimized control scheme with touch controls
 - Implement online leaderboards
 
-## Credits
-
-- Game design and development: [Your Name]
-- Sound effects: Free sound effects from [source]
-- Font: "Press Start 2P" from Google Fonts
 
 ## License
 
