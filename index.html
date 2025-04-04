@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarBlaster Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- 
+        StarBlaster Game - Main HTML File
+        This file serves as the entry point for the game and contains the basic structure
+        for the game interface. It links to the CSS and JavaScript files needed for the game.
+    -->
+</head>
+<body>
+    <div class="game-container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="game-screen">
+            <h1 class="game-title">StarBlaster</h1>
+            <button id="play-button" class="game-button">Play</button>
+            <button id="sound-toggle" class="game-button">Sound: ON</button>
+            
+            <div class="high-scores-container">
+                <h2>High Scores</h2>
+                <div id="high-scores-list">
+                    <!-- High scores will be populated here via JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Game Screen -->
+        <div id="game-screen" class="game-screen hidden">
+            <div class="game-header">
+                <div class="score-container">Score: <span id="score">0</span></div>
+                <div class="lives-container">Lives: <span id="lives">3</span></div>
+            </div>
+            
+            <canvas id="gameCanvas" width="600" height="800"></canvas>
+            
+            <div class="game-controls">
+                <button id="pauseButton" class="game-button">Pause</button>
+            </div>
+        </div>
+        
+        <!-- Game Over Screen -->
+        <div id="game-over-screen" class="game-screen hidden">
+            <h2>Game Over</h2>
+            <div class="final-score">Final Score: <span id="final-score">0</span></div>
+            
+            <div id="high-score-form">
+                <h3>New High Score!</h3>
+                <div class="high-score-input">
+                    <label for="player-name">Enter Your Name:</label>
+                    <input type="text" id="player-name" maxlength="10" placeholder="Your Name">
+                    <button id="submit-score" class="game-button">Save Score</button>
+                </div>
+            </div>
+            
+            <div id="high-score-submitted" style="display: none;">
+                <h3>Score Saved!</h3>
+            </div>
+            
+            <div class="game-over-controls">
+                <button id="restart-button" class="game-button">Play Again</button>
+                <button id="main-menu-button" class="game-button">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game script loaded at the end to ensure DOM is fully loaded -->
+    <script src="game.js"></script>
+</body>
+</html>

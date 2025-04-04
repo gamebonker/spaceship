@@ -1,0 +1,485 @@
+/* 
+ * StarBlaster Game - Main CSS File
+ * This file contains all the styling for the game interface elements
+ * including the game container, canvas, buttons, and text elements.
+ */
+
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Import Press Start 2P font if not already imported in HTML */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Create a space-themed background with stars */
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #050520;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+    background-position: 0 0, 40px 60px, 130px 270px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+/* Main game container */
+.game-container {
+    width: 650px;
+    max-width: 95%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 4px solid #00ffff;
+    border-radius: 8px;
+    box-shadow: 
+        0 0 0 4px #000,
+        0 0 10px #00ffff,
+        0 0 20px rgba(0, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Game screens (start, game, game over) */
+.game-screen {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+}
+
+/* Hide screens by default */
+.hidden {
+    display: none !important;
+}
+
+/* Game title styling */
+.game-title {
+    font-size: 40px;
+    color: #ff0066;
+    text-shadow: 
+        4px 4px 0 #000,
+        -2px -2px 0 #00ffff,
+        2px 2px 8px rgba(255, 0, 102, 0.8);
+    margin: 24px 0;
+    text-align: center;
+    letter-spacing: 2px;
+    transform: perspective(500px) rotateX(10deg);
+}
+
+/* Game header with score and lives */
+.game-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 8px;
+    border-bottom: 2px solid #00ffff;
+}
+
+/* Score and lives containers */
+.score-container, .lives-container {
+    font-size: 16px;
+    padding: 8px;
+    background-color: #000;
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    border-radius: 4px;
+}
+
+/* Game canvas */
+#gameCanvas {
+    width: 600px;
+    height: 800px;
+    max-width: 100%;
+    max-height: 80vh;
+    background-color: #000;
+    border: 2px solid #00ffff;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    image-rendering: pixelated;
+}
+
+/* Game controls container */
+.game-controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+/* Retro button styling */
+.game-button {
+    padding: 12px 24px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    background-color: #000;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    box-shadow: 0 4px 0 #006666;
+    position: relative;
+    top: 0;
+}
+
+.game-button:hover {
+    background-color: #003333;
+    color: #ffffff;
+    box-shadow: 0 4px 0 #004444;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+.game-button:active {
+    top: 4px;
+    box-shadow: 0 0 0 #006666;
+}
+
+/* Play button specific styling */
+#play-button {
+    background-color: #000;
+    color: #00ff00;
+    border-color: #00ff00;
+    box-shadow: 0 4px 0 #006600;
+    font-size: 24px;
+    padding: 16px 32px;
+    margin: 24px 0;
+}
+
+#play-button:hover {
+    background-color: #003300;
+    color: #ffffff;
+    box-shadow: 0 4px 0 #004400;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+#play-button:active {
+    box-shadow: 0 0 0 #006600;
+}
+
+/* Sound toggle button styling */
+#sound-toggle {
+    background-color: #000;
+    color: #ffcc00;
+    border-color: #ffcc00;
+    box-shadow: 0 4px 0 #996600;
+    margin-bottom: 16px;
+}
+
+#sound-toggle:hover {
+    background-color: #332200;
+    color: #ffffff;
+    box-shadow: 0 4px 0 #664400;
+    text-shadow: 0 0 5px #ffcc00;
+}
+
+#sound-toggle:active {
+    box-shadow: 0 0 0 #996600;
+}
+
+/* Pause button specific styling */
+#pauseButton {
+    background-color: #000;
+    color: #ffcc00;
+    border-color: #ffcc00;
+    box-shadow: 0 4px 0 #996600;
+}
+
+#pauseButton:hover {
+    background-color: #332200;
+    color: #ffffff;
+    box-shadow: 0 4px 0 #664400;
+    text-shadow: 0 0 5px #ffcc00;
+}
+
+#pauseButton:active {
+    box-shadow: 0 0 0 #996600;
+}
+
+/* High scores section */
+.high-scores-container {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 24px;
+    padding: 16px;
+    background-color: #000;
+    border: 2px solid #00ffff;
+    border-radius: 4px;
+}
+
+.high-scores-container h2 {
+    color: #00ffff;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 16px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+#high-scores-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#high-scores-list ol {
+    padding-left: 24px;
+}
+
+#high-scores-list li {
+    padding: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px dashed #00ffff;
+    font-size: 16px;
+}
+
+/* Game over screen styling */
+#game-over-screen h2 {
+    color: #ff0066;
+    font-size: 32px;
+    margin: 24px 0;
+    text-shadow: 
+        2px 2px 0 #000,
+        -1px -1px 0 #00ffff;
+}
+
+.final-score {
+    font-size: 24px;
+    color: #00ffff;
+    margin-bottom: 24px;
+}
+
+/* High score form styling */
+#high-score-form {
+    width: 100%;
+    max-width: 400px;
+    margin: 16px 0;
+    padding: 16px;
+    background-color: rgba(0, 255, 255, 0.1);
+    border: 2px solid #00ffff;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#high-score-form h3 {
+    color: #ffcc00;
+    font-size: 20px;
+    margin-bottom: 16px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+#high-score-submitted {
+    width: 100%;
+    max-width: 400px;
+    margin: 16px 0;
+    padding: 16px;
+    background-color: rgba(0, 255, 0, 0.1);
+    border: 2px solid #00ff00;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#high-score-submitted h3 {
+    color: #00ff00;
+    font-size: 20px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+/* High score input section */
+.high-score-input {
+    width: 100%;
+    max-width: 400px;
+    margin: 16px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.high-score-input label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #00ffff;
+}
+
+#player-name {
+    width: 100%;
+    padding: 12px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    background-color: #000;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+/* Submit score button */
+#submit-score {
+    background-color: #000;
+    color: #00ff00;
+    border-color: #00ff00;
+    box-shadow: 0 4px 0 #006600;
+}
+
+#submit-score:hover {
+    background-color: #003300;
+    color: #ffffff;
+    box-shadow: 0 4px 0 #004400;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+/* Game over controls */
+.game-over-controls {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+#restart-button {
+    background-color: #000;
+    color: #00ff00;
+    border-color: #00ff00;
+    box-shadow: 0 4px 0 #006600;
+}
+
+#restart-button:hover {
+    background-color: #003300;
+    color: #ffffff;
+    box-shadow: 0 4px 0 #004400;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+#main-menu-button {
+    background-color: #000;
+    color: #ff9900;
+    border-color: #ff9900;
+    box-shadow: 0 4px 0 #995500;
+}
+
+#main-menu-button:hover {
+    background-color: #331800;
+    color: #ffffff;
+    box-shadow: 0 4px 0 #663300;
+    text-shadow: 0 0 5px #ff9900;
+}
+
+/* Power-up indicator styling */
+.power-up-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #00ffff;
+    border-radius: 4px;
+    color: #00ffff;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.power-up-timer {
+    width: 100px;
+    height: 10px;
+    background-color: #000;
+    border: 1px solid #00ffff;
+    overflow: hidden;
+}
+
+.power-up-timer-bar {
+    height: 100%;
+    background-color: #00ffff;
+    transition: width 0.1s linear;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .game-title {
+        font-size: 32px;
+    }
+    
+    #gameCanvas {
+        max-height: 70vh;
+    }
+    
+    .game-button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+    
+    #play-button {
+        font-size: 20px;
+        padding: 14px 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-title {
+        font-size: 24px;
+    }
+    
+    .game-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    #gameCanvas {
+        max-height: 60vh;
+    }
+    
+    .game-button {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+    
+    #play-button {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+    
+    .game-over-controls {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .game-over-controls .game-button {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* Add a retro scanline effect to the game container */
+.game-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.5;
+}
